@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Normalize external links for safer outbound navigation.
+    document.querySelectorAll('a[href^="http://"], a[href^="https://"]').forEach(link => {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+    });
+
     const hamburger = document.querySelector('.hamburger-menu');
     const mobileMenu = document.querySelector('.mobile-menu-overlay');
     const mobileLinks = document.querySelectorAll('.mobile-nav a');
